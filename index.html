@@ -2,47 +2,82 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>WENCY</title>
   <style>
     body {
-      background-color: #A1694F;
-      font-family: Arial, sans-serif;
+      background: linear-gradient(45deg, #A1694F, #D2957A, #A1694F);
+      background-size: 400% 400%;
+      animation: bgAnim 15s ease infinite;
       text-align: center;
+      font-family: Arial, sans-serif;
       color: white;
-      padding-top: 50px;
+      padding-top: 60px;
     }
 
-    .avatar {
+    @keyframes bgAnim {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    img.avatar {
       width: 150px;
       height: 150px;
-      border-radius: 50%;
       object-fit: cover;
-      border: 3px solid white;
+      border-radius: 50%;
+      border: 4px solid white;
+      transition: transform 0.6s;
+    }
+
+    img.avatar.animate {
+      animation: dance 0.6s ease;
+    }
+
+    @keyframes dance {
+      0% {transform: translateY(0) rotate(0deg);}
+      25% {transform: translateY(-10px) rotate(15deg);}
+      50% {transform: translateY(0) rotate(-15deg);}
+      75% {transform: translateY(-6px) rotate(10deg);}
+      100% {transform: translateY(0) rotate(0deg);}
+    }
+
+    h1 {
+      font-size: 36px;
+      margin: 10px 0 5px 0;
+    }
+
+    p {
+      font-size: 16px;
       margin-bottom: 30px;
     }
 
-    a {
+    .link {
+      margin: 12px 0;
+      font-size: 20px;
       display: block;
-      margin: 10px 0;
       color: white;
       text-decoration: none;
-      font-size: 18px;
-    }
-
-    a:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <img src="IMG_6143.jpeg" alt="WENCY头像" class="avatar" />
+  <img src="IMG_6143.jpeg" alt="avatar" class="avatar" onclick="danceAvatar(this)">
   <h1>WENCY</h1>
-  <a href="https://instagram.com/imwencysofancy" target="_blank">Instagram</a>
-  <a href="https://www.tiktok.com/@wency336" target="_blank">TikTok</a>
-  <a href="https://www.douyin.com/" target="_blank">抖音</a>
-  <a href="https://youtube.com/@wency336" target="_blank">YouTube</a>
-  <a href="https://www.xiaohongshu.com/user/profile/5d02919d00000000100224f7" target="_blank">小红书</a>
-  <a href="mailto:wencyying@gmail.com">联系我</a>
+  <p>welcome to my world</p>
+
+  <a href="https://instagram.com/..." class="link">📸 Instagram</a>
+  <a href="https://www.tiktok.com/@..." class="link">🎵 TikTok</a>
+  <a href="https://www.douyin.com/user/..." class="link">🎶 抖音</a>
+  <a href="https://youtube.com/@..." class="link">🎬 YouTube</a>
+  <a href="https://www.xiaohongshu.com/user/..." class="link">📕 小红书</a>
+  <a href="mailto:example@email.com" class="link">💌 Let’s work together</a>
+
+  <script>
+    function danceAvatar(el) {
+      el.classList.add('animate');
+      setTimeout(() => el.classList.remove('animate'), 600);
+    }
+  </script>
 </body>
 </html>
